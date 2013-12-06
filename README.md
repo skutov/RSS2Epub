@@ -20,99 +20,99 @@ A potential element to the backend is at https://code.google.com/p/feed-reader-l
 
 Definitions
 ----------------------
-account - one user account, may have multiple feeds added and have multiple series's based off multiple feeds, eg different topics, times, etc.
-feed - an single RSS/Atom/other feed of content from a website that may be added by multiple users
-page - one piece of content from a feed, may include text, HTML etc.
-epub - a file for an ereader that contians information stored as text and/or images
-series - a definition of one series of epub files to be sent out including frequency, which feeds to include, where to send etc.
-issue - on epub file that gets sent out to a user, includes a number of pages from the feeds specified in the series for the issue
+account - one user account, may have multiple feeds added and have multiple series's based off multiple feeds, eg different topics, times, etc.  
+feed - an single RSS/Atom/other feed of content from a website that may be added by multiple users  
+page - one piece of content from a feed, may include text, HTML etc.  
+epub - a file for an ereader that contians information stored as text and/or images  
+series - a definition of one series of epub files to be sent out including frequency, which feeds to include, where to send etc.  
+issue - on epub file that gets sent out to a user, includes a number of pages from the feeds specified in the series for the issue  
 
 Database Structure
 ----------------------
-This is provisional and will probably change as development occurs.
-Format:
-table name
-	-field name - format
+This is provisional and will probably change as development occurs.  
+Format:  
+table name    
+	-field name - format  
 	
 
-accounts
-	- account uid - int PK
-	- email - string
-	- auth info - various
-	- name - string
+accounts  
+	- account uid - int PK  
+	- email - string  
+	- auth info - various  
+	- name - string  
 	
-categorys
-	- category id - int PK
-	- category name - string
-	- account uid - int
+categorys  
+	- category id - int PK  
+	- category name - string  
+	- account uid - int  
 	
-feeds
-	- feed id - int PK
-	- feed url - string
-	- name - string
-	- ttl - int
+feeds  
+	- feed id - int PK  
+	- feed url - string  
+	- name - string  
+	- ttl - int  
 
-pages
-	- page id - int PK
-	- feed id - int
-	- date/time published - date/time
-	- content - HTML or links to XSL files
+pages  
+	- page id - int PK  
+	- feed id - int  
+	- date/time published - date/time  
+	- content - HTML or links to XSL files  
 	
-series's
-	- series id - int PK
-	- account id - int
-	- series name - string
-	- frequency - int or time
-	- address - string (email address to send to, eg amazon distribution email address etc)
+series's  
+	- series id - int PK  
+	- account id - int  
+	- series name - string  
+	- frequency - int or time  
+	- address - string (email address to send to, eg amazon distribution email address etc)  
 
-issues
-	- issue id - int PK
-	- series id - int
-	- date - date/time
+issues  
+	- issue id - int PK  
+	- series id - int  
+	- date - date/time  
 	
-account-feeds
-	- account uid -int PK
-	- feed id - int PK
-	- category id - int
+account-feeds  
+	- account uid -int PK  
+	- feed id - int PK  
+	- category id - int  
+	 
+series-feeds  
+	- series id - int PK  
+	- feed id - int PK  
+	  
+issue-pages  
+	- issue id - int PK   
+	- page id - int PK  
 	
-series-feeds
-	- series id - int PK
-	- feed id - int PK
-	
-issue-pages
-	- issue id - int PK
-	- page id - int PK
-	
-account-pages
-	- account id - int PK
-	- page id - int PK
-	- read - bool
-	- vetod - bool
-	
+account-pages  
+	- account id - int PK  
+	- page id - int PK  
+	- read - bool  
+	- vetod - bool  
+	 
 Changelog
 ----------------------
 0.0 - Added readme and began design process
 
 Roadmap - Functionality
 ----------------------
-1.0 - Base functionality - Backend
-	1.1 - To be able to read and parse RSS feeds.
-	1.2 - To be able to create epub files from feed content.
-	1.3 - To be able to send epubs by email.
-	1.4 - To have this process happen automatically on a regular basis.
-	1.5 - To have the resultant content from parsing be saved into the database.
-	1.6 - To keep track of which pages have been read or sent out.
-	
-2.0 - Base functionality - Frontend
-	2.1 - To use google accounts/some other api for authentication. (more secure than developing own password system, also, who needs more accounts?)
-	2.2 - To allow users to select frequency of mailings, eg, daily, weekly, on specific days, when there's n unread articles, etc.
-	2.3 - To show un-sent articles for users to read/veto
-	2.4 - To give the option for users to have an epub sent out sooner that scheduled.
-	2.5 - To show the contents of 
-	
-3.0 - Multi-user optimisation - Database and Backend
-	3.1 - To keep database of articles and keep record of which ones have been sent to each user.
-	3.2 - To keep database of feeds and which articles are from each feed, to be updated frequently that users picks are chosen from.
+1.0 - Base functionality - Backend  
+1.1 - To be able to read and parse RSS feeds.  
+1.2 - To be able to create epub files from feed content.  
+1.3 - To be able to send epubs by email.  
+1.4 - To have this process happen automatically on a regular basis.  
+1.5 - To have the resultant content from parsing be saved into the database.  
+1.6 - To keep track of which pages have been read or sent out.  
+	 
+2.0 - Base functionality - Frontend  
+2.1 - To use google accounts/some other api for authentication. (more secure than developing own password system, also, who needs more accounts?)  
+2.2 - To allow users to select frequency of mailings, eg, daily, weekly, on specific days, when there's n unread articles, etc.  
+2.3 - To show un-sent articles for users to read/veto  
+2.4 - To give the option for users to have an epub sent out sooner that scheduled.  
+2.5 - To show the contents of previously sent issues to users.  
+
+3.0 - Multi-user optimisation - Database and Backend  
+3.1 - To keep database of articles and keep record of which ones have been sent to each user.  
+3.2 - To keep database of feeds and which articles are from each feed, to be updated frequently that users picks are chosen from.  
 
 To-Do
 ----------------------
