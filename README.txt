@@ -12,7 +12,7 @@ This is an app that will allow users to be emailed an epub file of their RSS fee
 Basic Concept
 ----------------------
 The program will have 3 parts.
-1 - A web based front end that takes care of people configuring their choices, notifications, email frequency, feeds, etc. Will probably be PHP based. Possibility of integrating with existing CMS system, will have to look into.
+1 - A web based front end that takes care of people configuring their choices, notifications, email frequency, feeds, etc. Will probably be PHP based.
 2 - A backend that gathers RSS content, parses it into a database, then out into epubs to be emailed to each user. Probaly will use C++, may change depending on avaliability of skill.
 3 - A MySQL database to store account information, feed content and to allow the frontend and backend to talk to each other.
 
@@ -20,7 +20,6 @@ A potential element to the backend is at https://code.google.com/p/feed-reader-l
 
 Definitions
 ----------------------
-account - one user account, may have multiple feeds added and have multiple series's based off multiple feeds, eg different topics, times, etc.
 feed - an single RSS/Atom/other feed of content from a website that may be added by multiple users
 page - one piece of content from a feed, may include text, HTML etc.
 epub - a file for an ereader that contians information stored as text and/or images
@@ -36,58 +35,57 @@ table name
 	
 
 accounts
-	- account uid - int PK
-	- email - string
-	- auth info - various
-	- name - string
+	-account uid - int PK
+	-email - string
+	-auth info - various
+	-name - string
 	
 categorys
-	- category id - int PK
-	- category name - string
-	- account uid - int
+	-category id - int PK
+	-category name - string
+	-account uid - int
 	
 feeds
-	- feed id - int PK
-	- feed url - string
-	- name - string
-	- ttl - int
+	-feed id - int PK
+	-feed url - string
+	-name - string
+	-ttl - int
 
 pages
-	- page id - int PK
-	- feed id - int
-	- date/time published - date/time
-	- content - HTML or links to XSL files
+	-page id - int PK
+	-feed id - int
+	-date/time published - date/time
+	-content - HTML or links to XSL files
 	
 series's
-	- series id - int PK
-	- account id - int
-	- series name - string
-	- frequency - int or time
-	- address - string (email address to send to, eg amazon distribution email address etc)
+	-series id - int PK
+	-account id - int
+	-frequency - int or time
+	-address - string (email address to send to, eg amazon distribution email address etc)
 
 issues
-	- issue id - int PK
-	- series id - int
-	- date - date/time
+	-issue id - int PK
+	-series id - int
+	-date - date/time
 	
 account-feeds
-	- account uid -int PK
-	- feed id - int PK
-	- category id - int
+	-account uid -int PK
+	-feed id - int PK
+	-category id - int
 	
 series-feeds
-	- series id - int PK
-	- feed id - int PK
+	-series id - int PK
+	-feed id - int PK
 	
 issue-pages
-	- issue id - int PK
-	- page id - int PK
+	-issue id - int PK
+	-page id - int PK
 	
 account-pages
-	- account id - int PK
-	- page id - int PK
-	- read - bool
-	- vetod - bool
+	-account id - int PK
+	-page id - int PK
+	-read - bool
+	-vetod - bool
 	
 Changelog
 ----------------------
@@ -96,6 +94,7 @@ Changelog
 Roadmap - Functionality
 ----------------------
 1.0 - Base functionality - Backend
+
 	1.1 - To be able to read and parse RSS feeds.
 	1.2 - To be able to create epub files from feed content.
 	1.3 - To be able to send epubs by email.
@@ -104,6 +103,7 @@ Roadmap - Functionality
 	1.6 - To keep track of which pages have been read or sent out.
 	
 2.0 - Base functionality - Frontend
+
 	2.1 - To use google accounts/some other api for authentication. (more secure than developing own password system, also, who needs more accounts?)
 	2.2 - To allow users to select frequency of mailings, eg, daily, weekly, on specific days, when there's n unread articles, etc.
 	2.3 - To show un-sent articles for users to read/veto
@@ -111,6 +111,7 @@ Roadmap - Functionality
 	2.5 - To show the contents of 
 	
 3.0 - Multi-user optimisation - Database and Backend
+
 	3.1 - To keep database of articles and keep record of which ones have been sent to each user.
 	3.2 - To keep database of feeds and which articles are from each feed, to be updated frequently that users picks are chosen from.
 
