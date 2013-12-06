@@ -117,20 +117,20 @@ Roadmap - Functionality
 To-Do
 ----------------------
 1. Database
-	- Finish design
-	- Create dev database
-	- Populate database with users and feeds
+	- [ ]Finish design
+	- [ ]Create dev database
+	- [ ]Populate database with users and feeds
 
 2. Backend
-	- Create base application for backend
-	- Get backend connecting to database
-	- Get backend parsing feeds into a database
-	- Automate parsing to happen based off ttl for feed
-	- Get backend creating epub files from pages in database (issues)
-	- Get backend selecting pages based off user selections
-	- Get backend emailing epubs to users
-	- Automate publishing issues based off user preference (time delay)
-	- Add option for users to have epubs sent when x unread pages in feeds.
+	- [ ]Create base application for backend
+	- [ ]Get backend connecting to database
+	- [ ]Get backend parsing feeds into a database
+	- [ ]Automate parsing to happen based off ttl for feed
+	- [ ]Get backend creating epub files from pages in database (issues)
+	- [ ]Get backend selecting pages based off user selections
+	- [ ]Get backend emailing epubs to users
+	- [ ]Automate publishing issues based off user preference (time delay)
+	- [ ]Add option for users to have epubs sent when x unread pages in feeds.
 	
 Terms and Conditions
 ====================
